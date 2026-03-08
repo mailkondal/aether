@@ -56,6 +56,20 @@ $og_title         = 'AetherDataLabs — When Data Meets Infinite';
         @media (max-width: 768px) {
             .large-title { font-size: 30px !important; }
         }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse, rgba(0, 212, 170, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero .container { position: relative; z-index: 2; }
     </style>
 </head>
 <body>

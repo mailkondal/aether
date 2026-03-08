@@ -164,8 +164,9 @@ $error = isset($_GET['error']) ? ($error_messages[$_GET['error']] ?? null) : nul
 
         .submit-btn {
             width: 100%;
-            background: linear-gradient(90deg, black, #343434);
+            background: linear-gradient(135deg, #00d4aa, #007a62);
             border: none;
+            color: #ffffff !important;
             padding: 14px 20px;
             font-size: 1rem;
             border-radius: 8px;

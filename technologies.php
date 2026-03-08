@@ -57,8 +57,10 @@ $og_title         = 'Technologies — AetherDataLabs';
         .data-card {
             position: relative;
             z-index: 2;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             max-height: 290px;
             min-height: 290px;
@@ -68,7 +70,7 @@ $og_title         = 'Technologies — AetherDataLabs';
             transition: all 0.3s ease;
         }
 
-        .data-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .data-card:hover { transform: translateY(-5px); border-color: rgba(0, 212, 170, 0.3); box-shadow: 0 0 30px rgba(0, 212, 170, 0.08), 0 20px 40px rgba(0,0,0,0.4); }
 
         .data-card img { margin-bottom: 20px; filter: invert(0); }
 
@@ -131,7 +133,7 @@ $og_title         = 'Technologies — AetherDataLabs';
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .tool-card:hover { transform: scale(1.05); border-color: rgba(255,255,255,0.3); }
+        .tool-card:hover { transform: scale(1.05); border-color: rgba(0, 212, 170, 0.3); }
 
         .tool-card img { width: 80%; height: auto; object-fit: contain; filter: brightness(0.9); }
 

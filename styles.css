@@ -11,6 +11,10 @@
     --border-radius-card: 20px;
     --border-radius-btn: 8px;
     --container-max: 1200px;
+    --color-accent: #00d4aa;
+    --color-accent-dim: rgba(0, 212, 170, 0.15);
+    --color-accent-glow: rgba(0, 212, 170, 0.08);
+    --color-accent-border: rgba(0, 212, 170, 0.3);
 }
 
 * {
@@ -131,7 +135,7 @@ body {
 .header.scrolled {
     background: rgba(0, 0, 0, 0.95);
     padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 212, 170, 0.2);
 }
 
 .header .container {
@@ -275,7 +279,7 @@ body {
 }
 
 .nav-link.active {
-    background: linear-gradient(45deg, #ffffff, #cccccc);
+    background: linear-gradient(45deg, var(--color-accent), #007a62);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -593,7 +597,7 @@ body {
     left: 0;
     width: 100%;
    
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
 }
 
 .footer-content {
@@ -810,13 +814,17 @@ body {
 .value-item {
     text-align: center;
     padding: 40px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     transition: all 0.4s ease;
 }
 
 .value-item:hover {
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--color-accent-border);
+    box-shadow: 0 0 30px var(--color-accent-glow), 0 20px 40px rgba(0,0,0,0.4);
     transform: translateY(-10px);
 }
 
@@ -847,18 +855,20 @@ body {
 
 .service-detail-item {
     text-align: center;
-    color:white !important;
+    color: white !important;
     padding: 50px 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 15px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.05) 100%);
 }
 
 .service-detail-item:hover {
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--color-accent-border);
+    box-shadow: 0 0 30px var(--color-accent-glow), 0 20px 40px rgba(0,0,0,0.4);
     transform: translateY(-15px);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
 }
 
 .service-icon {
@@ -931,8 +941,10 @@ body {
 
 .tech-item {
     padding: 15px 25px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 8px;
     font-size: 1.1rem;
     font-weight: 500;
@@ -948,8 +960,9 @@ body {
 }
 
 .tech-item:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.15) 100%);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--color-accent-border);
+    box-shadow: 0 0 30px var(--color-accent-glow), 0 20px 40px rgba(0,0,0,0.4);
     transform: translateX(10px);
 }
 
@@ -1069,8 +1082,8 @@ body {
 }
 
 .submit-btn {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.2) 100%);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, var(--color-accent), #007a62);
+    border: none;
     color: #ffffff !important;
     padding: 15px 40px;
     font-size: 1.1rem;
@@ -1087,10 +1100,9 @@ body {
 
 
 .submit-btn:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.3) 100%);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: linear-gradient(135deg, #007a62, var(--color-accent));
     transform: translateY(-3px);
-     color: #ffffff !important;
+    color: #ffffff !important;
 }
 
 
@@ -1259,7 +1271,7 @@ body {
 }
 
 .floating-icon.whatsapp { left: 20px; background: white; }
-.floating-icon.mail     { right: 20px; background: white; }
+.floating-icon.mail     { right: 20px; background: var(--color-accent); }
 
 @keyframes float-pulse {
     0%, 100% { transform: translateY(0); box-shadow: 0 4px 10px rgba(0,0,0,0.3); }

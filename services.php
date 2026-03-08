@@ -77,7 +77,10 @@ $og_title         = 'Services — AetherDataLabs';
             position: relative;
             z-index: 2;
             color: #fff;
-            border: 3px solid gray;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 15px;
             padding: 30px;
             margin: 20px;
@@ -87,16 +90,17 @@ $og_title         = 'Services — AetherDataLabs';
             width: 560px;
             max-width: 100%;
             line-height: 1.6;
-            box-shadow: 0 0 20px rgba(255,255,255,0.05);
+            box-shadow: 0 0 20px rgba(255,255,255,0.03);
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 1.2s ease forwards;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .data-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: rgba(0, 212, 170, 0.3);
+            box-shadow: 0 0 30px rgba(0, 212, 170, 0.08), 0 20px 40px rgba(0,0,0,0.4);
         }
 
         @keyframes fadeUp {
