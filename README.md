@@ -28,7 +28,6 @@ Corporate marketing website for **AetherDataLabs**, an Australian data engineeri
 |------|---------|---------|
 | PHP | 8.1+ | Server-side rendering |
 | Composer | Latest | PHP dependency management (future use) |
-| Node.js | 18+ | Frontend tooling (Vite/React — currently scaffolded) |
 
 ### Local Development
 
@@ -70,9 +69,9 @@ MAIL_TO=info@aetherdatalabs.com.au
 ```
 aether/
 ├── includes/                   # Shared PHP partials
-│   ├── head.php                # <meta>, CSS, favicon, CDN links
-│   ├── nav.php                 # Header and navigation
-│   └── footer.php              # Footer, floating icon, global script
+│   ├── head.php                # <meta>, SEO tags, GTM script, CSS link, favicon
+│   ├── nav.php                 # Header, navigation (active state), GTM noscript
+│   └── footer.php              # Footer, floating mail SVG icon, script.js include
 │
 ├── assets/
 │   ├── images/                 # All image assets (PNG, SVG)
@@ -82,16 +81,18 @@ aether/
 ├── about-us.php                # About page
 ├── services.php                # Services page
 ├── technologies.php            # Technologies page
-├── contact-us.php              # Contact form
+├── contact-us.php              # Contact form (generates CSRF token)
 ├── thank-you.php               # Post-submission confirmation
-├── submit_form.php             # Form handler (POST only)
+├── 404.php                     # Custom 404 error page
+├── submit_form.php             # Form handler (POST only, CSRF + sanitisation)
 │
-├── styles.css                  # Global stylesheet
-├── script.js                   # Global JavaScript
+├── styles.css                  # Global stylesheet (CSS variables at top)
+├── script.js                   # Global JavaScript (incl. accessible video pause)
 │
 ├── PHPMailer/                  # Email library
-├── src/                        # Vite/React scaffold (future use)
 ├── .env                        # Secrets — NOT committed
+├── .env.example                # Safe template — committed to git
+├── .htaccess                   # 404 routing, security headers, deny rules
 ├── .gitignore
 ├── CLAUDE.md                   # AI assistant context
 └── README.md
@@ -182,14 +183,11 @@ $mail->Password = 'MyPassword123';
 $mail->Password = $_ENV['SMTP_PASS'];
 ```
 
-Load `.env` using a library like `vlucas/phpdotenv` (Composer):
-```bash
-composer require vlucas/phpdotenv
-```
+This project uses a lightweight custom loader (`includes/env.php`) — no Composer required:
 
 ```php
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+require_once 'includes/env.php'; // loads .env into $_ENV automatically
+$pass = $_ENV['SMTP_PASS'];
 ```
 
 ### 4. Use `exit()` After Every Redirect
@@ -288,9 +286,10 @@ if (el) el.innerHTML = '';
 ### Accessibility
 
 - Ensure colour contrast ratios meet WCAG 2.1 AA (4.5:1 for body text)
-- Navigation must be keyboard-accessible
-- Videos must have `muted` and the option to pause (consider adding a pause button)
+- Navigation must be keyboard-accessible (Escape closes mobile menu)
+- All background videos have an accessible pause/play button injected by `script.js` (WCAG 2.1 SC 2.2.2)
 - All form inputs must have associated `<label>` elements
+- Use `aria-label` on icon-only links and `aria-hidden="true"` on decorative SVGs
 
 ---
 
@@ -298,36 +297,42 @@ if (el) el.innerHTML = '';
 
 ### Checklist
 
-- [ ] All `$_POST` / `$_GET` values sanitised before use
-- [ ] SMTP credentials in `.env`, not in source code
-- [ ] `.env` listed in `.gitignore`
-- [ ] Form submissions validated server-side
+- [x] All `$_POST` / `$_GET` values sanitised (`strip_tags`, newline removal, `htmlspecialchars`, length limits)
+- [x] SMTP credentials in `.env`, not in source code
+- [x] `.env` listed in `.gitignore`
+- [x] CSRF token (one-time use) on contact form
+- [x] Form submissions validated server-side
+- [x] `.htaccess` denies access to `.env`, `includes/`, log and json files
+- [x] Security headers set (`X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`)
 - [ ] No raw PHP errors displayed to end users in production
 - [ ] HTTPS enforced in production (via server config or `.htaccess`)
 - [ ] Content Security Policy (CSP) header set
-- [ ] `X-Frame-Options: DENY` header set to prevent clickjacking
 
-### Recommended `.htaccess` (Apache)
+### `.htaccess` (Apache) — already committed
 
 ```apache
-# Force HTTPS
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Custom error pages
+ErrorDocument 404 /404.php
 
 # Security headers
-Header always set X-Frame-Options "DENY"
-Header always set X-Content-Type-Options "nosniff"
-Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
 
-# Prevent access to sensitive files
-<FilesMatch "\.(env|log|md|json|lock)$">
-    Order allow,deny
-    Deny from all
+# Deny access to sensitive files
+<FilesMatch "\.(env|log|json|lock)$">
+    Require all denied
 </FilesMatch>
 
-# Prevent directory listing
-Options -Indexes
+# Deny access to includes directory
+RewriteEngine On
+RewriteRule ^includes/ - [F,L]
+```
+
+To also force HTTPS, add above the RewriteRule:
+```apache
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 ```
 
 ---
@@ -355,7 +360,7 @@ Options -Indexes
 ### CSS/JS
 
 - Minify `styles.css` and `script.js` for production
-- Consider bundling via Vite (already scaffolded) when React/TS features are adopted
+- Vite/React scaffold has been removed — the site is vanilla PHP/CSS/JS
 
 ---
 
@@ -437,9 +442,12 @@ docs: update README deployment section
 
 - [ ] No credentials or secrets in code
 - [ ] All images in `assets/images/`, video in `assets/video/`
+- [ ] Page sets `$meta_description` and `$og_title` before including `head.php`
 - [ ] Page uses `includes/head.php`, `includes/nav.php`, `includes/footer.php`
 - [ ] No styles added after `</html>`
-- [ ] `alt` attributes on all images
+- [ ] `alt` attributes on all images; `aria-label` on icon-only links
+- [ ] New icons added as inline SVG, not Font Awesome
+- [ ] New CSS uses `:root` variables where applicable
 - [ ] Tested on mobile viewport (375px)
 
 ---

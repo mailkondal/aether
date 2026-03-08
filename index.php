@@ -1,3 +1,7 @@
+<?php
+$meta_description = 'AetherDataLabs is an Australian data engineering and analytics consultancy. We turn raw data into real value through modern platforms, seamless integration, and AI-powered insights.';
+$og_title         = 'AetherDataLabs — When Data Meets Infinite';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,10 +51,10 @@
             text-align: center;
         }
 
-        .zxr { font-size: 30px !important; margin-top: 20px !important; }
+        .contact-email-title { font-size: 30px !important; margin-top: 20px !important; }
 
         @media (max-width: 768px) {
-            .gvk { font-size: 30px !important; }
+            .large-title { font-size: 30px !important; }
         }
     </style>
 </head>
@@ -87,7 +91,7 @@
     </section>
 
     <!-- Story Section -->
-    <section class="story section-animate ngk" id="story">
+    <section class="story section-animate full-height-section" id="story">
         <div class="story-bg-video">
             <video autoplay muted loop playsinline controlslist="nodownload" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/video/background-video.mp4" type="video/mp4">
@@ -96,7 +100,7 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="container">
-            <h2 class="section-title animate-on-scroll gvk">
+            <h2 class="section-title animate-on-scroll large-title">
                 <span class="title-word">The</span>
                 <span class="title-word">Story</span>
             </h2>
@@ -116,7 +120,7 @@
     </section>
 
     <!-- What We Do Section -->
-    <section class="story what-we-do section-animate ngk">
+    <section class="story what-we-do section-animate full-height-section">
         <div class="story-bg-video">
             <video autoplay muted loop playsinline controlslist="nodownload" style="width:100%; height:100%; object-fit:cover;">
                 <source src="assets/video/background-video.mp4" type="video/mp4">
@@ -185,7 +189,7 @@
             </div>
         </div>
         <div class="footer-section" style="text-align: center;">
-            <h3 class="footer-title animate-on-scroll zxr">Get in Touch</h3>
+            <h3 class="footer-title animate-on-scroll contact-email-title">Get in Touch</h3>
             <a href="mailto:info@aetherdatalabs.com.au" class="footer-contact animate-on-scroll" data-delay="0.2">info@aetherdatalabs.com.au</a>
         </div>
     </section>

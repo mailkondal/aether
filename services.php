@@ -1,3 +1,7 @@
+<?php
+$meta_description = 'Data engineering, platform modernisation, insights and reporting, advanced analytics enablement, and consulting services — all tailored to your business needs.';
+$og_title         = 'Services — AetherDataLabs';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +38,7 @@
                 text-align: center;
             }
             .hero h1 span { display: block; margin: 6px 0; }
-            .nkr { display: none; }
+            .hide-on-mobile { display: none; }
         }
 
         /* Service card sections */
@@ -77,8 +81,8 @@
             border-radius: 15px;
             padding: 30px;
             margin: 20px;
-            min-height: 900px;
-            max-height: 900px;
+            min-height: unset;
+            max-height: unset;
             overflow: hidden;
             width: 560px;
             max-width: 100%;

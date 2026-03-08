@@ -407,6 +407,41 @@ function addPageTransitions() {
 addPageTransitions();
 
 
+// ===== Accessible Video Pause Buttons =====
+document.addEventListener('DOMContentLoaded', function() {
+    const videos = document.querySelectorAll('video[autoplay]');
+
+    videos.forEach(function(video, index) {
+        const btn = document.createElement('button');
+        btn.className = 'video-pause-btn';
+        btn.setAttribute('aria-label', 'Pause background video');
+        btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+
+        btn.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+                btn.setAttribute('aria-label', 'Pause background video');
+                btn.setAttribute('aria-pressed', 'false');
+                btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+            } else {
+                video.pause();
+                btn.setAttribute('aria-label', 'Play background video');
+                btn.setAttribute('aria-pressed', 'true');
+                btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>';
+            }
+        });
+
+        const parent = video.parentElement;
+        if (parent) {
+            if (getComputedStyle(parent).position === 'static') {
+                parent.style.position = 'relative';
+            }
+            parent.appendChild(btn);
+        }
+    });
+});
+
 // Add keyboard navigation support
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {

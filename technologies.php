@@ -1,3 +1,7 @@
+<?php
+$meta_description = 'We work across the full data ecosystem — Azure, AWS, Snowflake, Databricks, Power BI, Tableau, and more. The right tools for the right job, tailored to your goals.';
+$og_title         = 'Technologies — AetherDataLabs';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +31,7 @@
         @media (max-width: 768px) {
             #hero h1 { white-space: normal; display: flex; flex-direction: column; align-items: center; font-size: 1.4rem; text-align: center; }
             .hero h1 span { display: block; margin: 6px 0; }
-            .nkr { display: none; }
+            .hide-on-mobile { display: none; }
         }
 
         /* Tech category grid */

@@ -1,553 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Google Tag Manager -->
-    <script>
-    (function(w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(),
-            event: 'gtm.js'
-        });
-        var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-T7C2GKDJ');
-    </script>
-    <!-- End Google Tag Manager -->
-
-
-    <title>Thank you Page</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <title>Thank You - AetherDataLabs</title>
+    <?php include 'includes/head.php'; ?>
     <style>
-    html {
-        font-family: sans-serif;
-        -ms-text-size-adjust: 100%;
-        -webkit-text-size-adjust: 100%
-    }
-
-    body {
-        margin: 0;
-
-
-    }
-
-    article,
-    aside,
-    details,
-    figcaption,
-    figure,
-    footer,
-    header,
-    hgroup,
-    main,
-    menu,
-    nav,
-    section,
-    summary {
-        display: block
-    }
-
-    audio,
-    canvas,
-    progress,
-    video {
-        display: inline-block;
-        vertical-align: baseline
-    }
-
-    audio:not([controls]) {
-        display: none;
-        height: 0
-    }
-
-    [hidden],
-    template {
-        display: none
-    }
-
-    a {
-        background-color: transparent
-    }
-
-    a:active,
-    a:hover {
-        outline: 0
-    }
-
-    abbr[title] {
-        border-bottom: 1px dotted
-    }
-
-    b,
-    strong {
-        font-weight: 700
-    }
-
-    dfn {
-        font-style: italic
-    }
-
-    h1 {
-        font-size: 2em;
-        margin: .67em 0
-    }
-
-    mark {
-        background: #ff0;
-        color: #000
-    }
-
-    small {
-        font-size: 80%
-    }
-
-    sub,
-    sup {
-        font-size: 75%;
-        line-height: 0;
-        position: relative;
-        vertical-align: baseline
-    }
-
-    sup {
-        top: -.5em
-    }
-
-    sub {
-        bottom: -.25em
-    }
-
-    img {
-        border: 0
-    }
-
-    svg:not(:root) {
-        overflow: hidden
-    }
-
-    figure {
-        margin: 1em 40px
-    }
-
-    hr {
-        -moz-box-sizing: content-box;
-        box-sizing: content-box;
-        height: 0
-    }
-
-    pre {
-        overflow: auto
-    }
-
-    code,
-    kbd,
-    pre,
-    samp {
-        font-family: monospace, monospace;
-        font-size: 1em
-    }
-
-    button,
-    input,
-    optgroup,
-    select,
-    textarea {
-        color: inherit;
-        font: inherit;
-        margin: 0
-    }
-
-    button {
-        overflow: visible
-    }
-
-    button,
-    select {
-        text-transform: none
-    }
-
-    button,
-    html input[type=button],
-    input[type=reset],
-    input[type=submit] {
-        -webkit-appearance: button;
-        cursor: pointer
-    }
-
-    button[disabled],
-    html input[disabled] {
-        cursor: default
-    }
-
-    button::-moz-focus-inner,
-    input::-moz-focus-inner {
-        border: 0;
-        padding: 0
-    }
-
-    input {
-        line-height: normal
-    }
-
-    input[type=checkbox],
-    input[type=radio] {
-        box-sizing: border-box;
-        padding: 0
-    }
-
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-        height: auto
-    }
-
-    input[type=search] {
-        -webkit-appearance: textfield;
-        -moz-box-sizing: content-box;
-        -webkit-box-sizing: content-box;
-        box-sizing: content-box
-    }
-
-    input[type=search]::-webkit-search-cancel-button,
-    input[type=search]::-webkit-search-decoration {
-        -webkit-appearance: none
-    }
-
-    fieldset {
-        border: 1px solid silver;
-        margin: 0 2px;
-        padding: .35em .625em .75em
-    }
-
-    legend {
-        border: 0;
-        padding: 0
-    }
-
-    textarea {
-        overflow: auto
-    }
-
-    optgroup {
-        font-weight: 700
-    }
-
-    table {
-        border-collapse: collapse;
-        border-spacing: 0
-    }
-
-    td,
-    th {
-        padding: 0
-    }
-
-
-    /* Basic */
-
-    html {
-        font-size: 16px;
-        font-size: 1rem;
-        line-height: 28px;
-        line-height: 1.75rem;
-    }
-
-    body {
-
-        background-image: url("pic-8.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        margin: auto;
-        color: #000;
-
-    }
-
-
-    /* Font family */
-
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        line-height: normal;
-        text-transform: uppercase;
-    }
-
-
-    /* Button */
-
-    a {
-        -webkit-transition: all 200ms ease;
-        -moz-transition: all 200ms ease;
-        transition: all 200ms ease;
-        -webkit-transform: translate3d(0, 0, 0);
-        /* Webkit Hardware Acceleration */
-        -webkit-backface-visibility: hidden;
-        /* Animation fix */
-    }
-
-    a,
-    a:visited,
-    a:active {
-        text-decoration: none;
-    }
-
-    .btn {
-        display: block;
-        margin: 30px auto;
-        padding: 10px;
-        border: 2px solid #be3427;
-        text-transform: uppercase;
-        font-weight: bold;
-        background: #be3427;
-        color: #fff;
-        width: 60%;
-    }
-
-    .btn:hover {
-        background: transparent;
-        color: #333;
-    }
-
-    #timer {
-        font-size: 16px;
-        font-size: 1rem;
-    }
-
-    .copyright {
-        font-size: 14px;
-        font-size: 0.875rem;
-        text-align: center;
-    }
-
-
-    /* Animation */
-
-    .animated {
-        -webkit-animation-duration: 1.2s;
-        -moz-animation-duration: 1.2s;
-        -ms-animation-duration: 1.2s;
-        -o-animation-duration: 1.2s;
-        animation-duration: 1.2s;
-        -webkit-transform: translate3d(0, 0, 0);
-        -webkit-backface-visibility: hidden;
-    }
-
-    .animated.fast {
-        -webkit-animation-duration: 800ms;
-        -moz-animation-duration: 800ms;
-        -ms-animation-duration: 800ms;
-        -o-animation-duration: 800ms;
-        animation-duration: 800ms;
-    }
-
-    .animated.slow {
-        -webkit-animation-duration: 1.4s;
-        -moz-animation-duration: 1.4s;
-        -ms-animation-duration: 1.4s;
-        -o-animation-duration: 1.4s;
-        animation-duration: 1.4s;
-    }
-
-    @-webkit-keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            -webkit-transform: translateY(20px);
-        }
-
-        100% {
-            opacity: 1;
-            -webkit-transform: translateY(0);
-        }
-    }
-
-    @-moz-keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            -moz-transform: translateY(20px);
-        }
-
-        100% {
-            opacity: 1;
-            -moz-transform: translateY(0);
-        }
-    }
-
-    @-o-keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            -o-transform: translateY(20px);
-        }
-
-        100% {
-            opacity: 1;
-            -o-transform: translateY(0);
-        }
-    }
-
-    @keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .fadeInUp {
-        -webkit-animation-name: fadeInUp;
-        -moz-animation-name: fadeInUp;
-        -o-animation-name: fadeInUp;
-        animation-name: fadeInUp;
-    }
-
-
-    /* Layout: center box  // old code */
-
-    #logo-box {
-        text-align: center;
-        padding: 30px;
-
-        position: absolute;
-        left: 50%;
-        top: 48%;
-        width: 400px;
-        margin-left: -230px;
-        height: 440px;
-        margin-top: -250px;
-        font-size: 20px;
-        border: 3px solid #be3427;
-        box-shadow: 6px 6px 0px #333;
-    }
-
-    h1 {
-        font-size: 30px;
-        margin: 0 auto;
-    }
-
-
-    /* Desktop only */
-    @media (min-width: 359px) {
-
-        #logo-box {}
-
-    }
-
-
-    @media (min-width: 320px) {
-        body {
-
-            background-image: url("pic-8.jpg");
-            background-position: center center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-size: cover;
-
-        }
-
-        #logo-box {
-            position: absolute;
+        .thankyou-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            left: 50%;
-            top: 48%;
-            width: 300px;
-            margin-left: -150px;
-            height: 500px;
-            margin-top: -250px;
-            font-size: 20px;
-            border: 3px solid #be3427;
-            box-shadow: 6px 6px 0px #333;
+            color: #fff;
+            overflow: hidden;
         }
 
-        h1 {
-            font-size: 36px;
+        .thankyou-hero .bg-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
         }
-    }
 
-    .icon {
-        background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4NDEuOSAxMTkwLjYiPjxwYXRoIGQ9Ik01NzMuMiAzNzMuNmwtMTguOS0xOC45TDM5Ni41IDUxNGwtODItODJMMjk3LjIgNDUxbDk5LjQgOTkuM0w1NzMuMiAzNzMuNnpNNzA1LjcgNDU1LjdWMTgyLjdIMTM3Ljh2MjcyLjlMOC40IDUwOS4zdjQ5OC41aDgyNS4xVjUwOS4zTDcwNS43IDQ1NS43ek03OTQuMSA1MjAuM2wtODguMyA1NS4ydi05MS41TDc5NC4xIDUyMC4zek02ODAuNCAyMDkuNnYzODMuM0w0MjEuNyA3NTMuOCAxNjMgNTkyLjlWMjA5LjZINjgwLjR6TTEzNy44IDU3NS42bC04OC40LTU1LjIgODguMy0zNi4zTDEzNy44IDU3NS42IDEzNy44IDU3NS42ek0zNS4zIDk4Mi41VjU0MC45bDM4Ni41IDI0NC41IDM4Ni40LTI0M3Y0NDEuN0gzNS4zVjk4Mi41ek0xMy40IDk5OC42bDQwOC40LTIxMi4yTTQyMi42IDc4Ni41TDgzMSA5OTguNyIgc3R5bGU9InN0cm9rZS13aWR0aDoyMDtzdHJva2U6IzAwMCIvPjwvc3ZnPg==) no-repeat center center;
-        height: 128px;
-        margin: auto;
-        width: 90px;
-        color: #fff;
-    }
+        .thankyou-hero .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .thankyou-content {
+            position: relative;
+            z-index: 2;
+            max-width: 640px;
+            padding: 40px 20px;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .check-icon {
+            width: 80px;
+            height: 80px;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            animation: pulse 2.5s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.15); }
+            50%       { box-shadow: 0 0 0 16px rgba(255,255,255,0); }
+        }
+
+        .check-icon svg { width: 36px; height: 36px; }
+
+        .thankyou-content h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .thankyou-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.07);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-2px);
+        }
+
+        .countdown {
+            margin-top: 32px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            .thankyou-content h1 { font-size: 2rem; }
+        }
     </style>
+</head>
+<body>
+    <?php include 'includes/nav.php'; ?>
 
-    <script type="text/javascript">
-    var count = 5; // Timer
-    var redirect = "https://webbingprotechnologies.in/aether/"; // Target URL     var redirect = "/#master-wrap"
+    <section class="thankyou-hero">
+        <video class="bg-video" autoplay muted loop playsinline controlslist="nodownload">
+            <source src="assets/video/background-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
 
-    function countDown() {
-        var timer = document.getElementById("timer"); // Timer ID
-        if (count > 0) {
-            count--;
-            timer.innerHTML = "This page will redirect in " + count + " seconds."; // Timer Message
-            setTimeout("countDown()", 1000);
+        <div class="thankyou-content">
+            <div class="check-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            </div>
+
+            <h1>Thank You</h1>
+            <p>
+                Your message has been received.<br>
+                We'll be in touch with you very soon.
+            </p>
+
+            <a href="index.php" class="back-btn">Back to Home</a>
+
+            <p class="countdown" id="countdown"></p>
+        </div>
+    </section>
+
+    <?php include 'includes/footer.php'; ?>
+
+    <script>
+    let seconds = 8;
+    const el = document.getElementById('countdown');
+
+    function tick() {
+        el.textContent = 'Redirecting in ' + seconds + 's…';
+        if (seconds <= 0) {
+            window.location.href = 'index.php';
         } else {
-            window.location.href = redirect;
+            seconds--;
+            setTimeout(tick, 1000);
         }
     }
+
+    tick();
     </script>
-</head>
-
-<body>
-    <div id="master-wrap">
-        <div id="logo-box">
-
-            <div class="animated fast fadeInUp">
-                <div class="icon "></div>
-                <hr>
-                <h1>Thank you</h1>
-            </div>
-
-            <div class="notice animated fadeInUp">
-                <p class="lead">Your message has been successfully sent. We will contact you very soon!</p>
-                <a class="btn animation" href="javascript:history.back()">&larr; Back</a>
-            </div>
-
-            <div class="footer animated slow fadeInUp">
-                <p id="timer">
-                    <script type="text/javascript">
-                    countDown();
-                    </script>
-                </p>
-                <!-- <p class="copyright">&copy; Redfrost.com</p>-->
-            </div>
-
-        </div>
-        <!-- /#logo-box -->
-    </div>
-    <!-- /#master-wrap -->
 </body>
-
 </html>

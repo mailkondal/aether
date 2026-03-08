@@ -1,3 +1,7 @@
+<?php
+$meta_description = 'Founded by experienced data technologists, AetherDataLabs bridges the infinite potential of data with real-world business purpose. Learn our story and mission.';
+$og_title         = 'About Us — AetherDataLabs';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +38,7 @@
                 text-align: center;
             }
             .hero h1 span { display: block; margin: 6px 0; }
-            .nkr { display: none; }
+            .hide-on-mobile { display: none; }
             .section-content p { text-align: left; }
         }
 

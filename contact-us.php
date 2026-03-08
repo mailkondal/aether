@@ -1,3 +1,22 @@
+<?php
+$meta_description = 'Ready to make sense of your data? Get in touch with AetherDataLabs for a free initial consultation with our data engineering and analytics experts.';
+$og_title         = 'Contact Us — AetherDataLabs';
+
+session_start();
+// Generate a CSRF token for this page load
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+$csrf_token = $_SESSION['csrf_token'];
+
+// Surface any error message from a failed submission
+$error_messages = [
+    'missing_fields'  => 'Please fill in all required fields.',
+    'invalid_request' => 'Invalid form submission. Please try again.',
+    'send_failed'     => 'Sorry, we could not send your message. Please email us directly.',
+];
+$error = isset($_GET['error']) ? ($error_messages[$_GET['error']] ?? null) : null;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,6 +175,16 @@
 
         .submit-btn:hover { transform: translateY(-3px); }
 
+        .form-error {
+            background: rgba(220, 50, 50, 0.15);
+            border: 1px solid rgba(220, 50, 50, 0.4);
+            color: #ff8080;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
         @media (max-width: 992px) {
             .contact-grid { grid-template-columns: 1fr; gap: 40px; }
             .contact-content { padding: 80px 20px; }
@@ -211,7 +240,11 @@
                 </div>
 
                 <div class="contact-form-container animate-on-scroll" data-delay="0.3">
+                    <?php if ($error): ?>
+                        <div class="form-error"><?= htmlspecialchars($error) ?></div>
+                    <?php endif; ?>
                     <form class="contact-form" action="submit_form.php" method="post">
+                        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf_token) ?>">
                         <div class="form-group animate-on-scroll" data-delay="0.4">
                             <input type="text" id="name" name="name" placeholder=" " required>
                             <label for="name">Your Name</label>

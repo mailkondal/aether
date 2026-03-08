@@ -4,7 +4,14 @@
       "Bash(mv *.png assets/images/)",
       "Bash(mv background-video.mp4 assets/video/)",
       "Bash(\"c:/Github/aether/.gitignore\":*)",
-      "Bash(ls *.php *.css *.js *.json .gitignore)"
+      "Bash(ls *.php *.css *.js *.json .gitignore)",
+      "Bash(grep -n \"CSRF\\\\|csrf\\\\|token\\\\|honeypot\\\\|rate.limit\" *.php)",
+      "Bash(\"c:/Github/aether/.env.example\":*)",
+      "Bash(\"c:/Github/aether/.env\":*)",
+      "Bash(for f in index.php about-us.php services.php technologies.php contact-us.php)",
+      "Bash(do echo \"=== $f ===\")",
+      "Read(//c/Github/aether/**)",
+      "Bash(done)"
     ]
   }
 }
