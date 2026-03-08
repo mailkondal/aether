@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv *.png assets/images/)",
+      "Bash(mv background-video.mp4 assets/video/)",
+      "Bash(\"c:/Github/aether/.gitignore\":*)",
+      "Bash(ls *.php *.css *.js *.json .gitignore)"
+    ]
+  }
+}
